@@ -1,13 +1,8 @@
 import tkinter as tk
 from tkinter import *
 import subprocess
-from acceptMatch import *
-import os
-import time
-from header import *
-from autoReport import *
 from autoCait import *
-from acceptAndPick import *
+from header import *
 import webbrowser
 
 def start_game():
@@ -31,13 +26,6 @@ def start_game():
     ban_entry.pack()
     start_button.pack()
 
-def report_enemies():
-    alert_window = tk.Toplevel(root)
-    alert_window.title("Alert")
-    alert_button = tk.Button(alert_window, text="IN DEVELOPING")
-    
-    alert_button.pack()
-
 def macro_cait():
     alert_window = tk.Toplevel(root)
     alert_window.title("Alert")
@@ -50,9 +38,6 @@ def start_game_with_champs(champ_to_play, champ_to_ban):
     print(champ_to_play,champ_to_ban)
     subprocess.call([AutoAccept_Two(champ_to_play, champ_to_ban)])
     
-    
-def auto_accept():
-    subprocess.call([aramAccept()])
     
 def search_runes():
     input_window = tk.Toplevel(root)
@@ -80,23 +65,19 @@ def openSite(string):
 root = tk.Tk()
 root.title("AutoClicker")
 
-button1 = tk.Button(root, text="Auto-Accept Match + Choose Champion", command=start_game)
-button2 = tk.Button(root, text="Report All Enemies", command=report_enemies)
+button1 = tk.Button(root, text="Auto-Accept Match", command=start_game)
 button3 = tk.Button(root, text="Macro Cait", command=macro_cait)
-button4 = tk.Button(root, text="Just Accept Match",command=auto_accept)
 button5 = tk.Button(root, text= "Search Runes", command=search_runes)
 
 button1.pack()
-button2.pack()
 button3.pack()
-button4.pack()
 button5.pack()
 
 
 # mainloop
 def startGui():
     root.geometry("200x200")
-    root.iconphoto(False, tk.PhotoImage(file='icon.png'))
+    #root.iconphoto(False, tk.PhotoImage(file='icon.png'))
     root.mainloop()
     
 
