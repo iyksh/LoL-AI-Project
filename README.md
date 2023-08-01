@@ -15,7 +15,7 @@ Tesseract
 ## Usage
 
 To get started with the autoclicker, simply run the "install.py" script. This will launch an application that will automatically install all of the necessary requirements for you. 
-Once that's done, you can run the "src/main.py" script and the autoclicker will be up and running, ready for use.
+Once that's done, you can run the "startup.py" script and the autoclicker will be up and running, ready for use.
 
 ## Libraries descriptions:
 
