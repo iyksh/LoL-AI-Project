@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import *
 import subprocess
-from autoCait import *
 from header import *
 import webbrowser
 
@@ -66,11 +65,9 @@ root = tk.Tk()
 root.title("AutoClicker")
 
 button1 = tk.Button(root, text="Auto-Accept Match", command=start_game)
-button3 = tk.Button(root, text="Macro Cait", command=macro_cait)
 button5 = tk.Button(root, text= "Search Runes", command=search_runes)
 
 button1.pack()
-button3.pack()
 button5.pack()
 
 
