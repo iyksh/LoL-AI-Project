@@ -2,15 +2,21 @@
 ### I'll be introducing you to the script that I developed using Python libraries. 
 
 ## Requirements
-Python 3.10+
+### Python 3.10+
 
-OpenCV-Python
-PyautoGUI
-Pynput
-Pillow
-Tk
-Subprocess.run
-Tesseract
+> OpenCV-Python
+
+> PyautoGUI
+
+> Pynput
+
+> Pillow
+
+> Tk
+
+> Subprocess.run
+
+> Tesseract
 
 ## Usage
 
