@@ -1,29 +1,12 @@
 # LoL-Autocicker
 ### I'll be introducing you to the script that I developed using Python libraries. 
 
-## Requirements
-### Python 3.10+
-
-> OpenCV-Python
-
-> PyautoGUI
-
-> Pynput
-
-> Pillow
-
-> Tk
-
-> Subprocess.run
-
-> Tesseract
-
 ## Usage
 
 To get started with the autoclicker, simply run the "install.py" script. This will launch an application that will automatically install all of the necessary requirements for you. 
 Once that's done, you can run the "startup.py" script and the autoclicker will be up and running, ready for use.
 
-## Libraries descriptions:
+## Requirements and libraries descriptions:
 
 > - OpenCV-Python is a library that provides computer vision and machine learning algorithms in Python. It's primarily used for image and video processing, object detection, face recognition, and tracking.
 > - PyAutoGUI is a library that enables Python to simulate mouse movements, keyboard presses, and other GUI events. It can be used to automate GUI testing, perform repetitive tasks, and create macros. 
