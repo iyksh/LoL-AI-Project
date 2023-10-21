@@ -1,23 +1,31 @@
 import pyautogui
 import time
+import os
+import webbrowser
 
 def click_img(imageName,confidenceNum):
     """Get a position of the center of an image, and click it"""
     numtry = 1
     while(True):
         time.sleep(1.5)
-        findImgLoc = pyautogui.locateOnScreen(f'images/{imageName}',grayscale=True,confidence=confidenceNum)
+        if os.name == "nt":
+            operatingSystem = "Windows"
+            findImgLoc = pyautogui.locateOnScreen(f'.\src\images\{imageName}',grayscale=True,confidence=confidenceNum)
+        
+        else:
+            operatingSystem = "Linux"
+            findImgLoc = pyautogui.locateOnScreen(f'./src/images/{imageName}',grayscale=True,confidence=confidenceNum)
         
         if findImgLoc != None:
         
             findImgLoc = pyautogui.center(findImgLoc)
             imgX, imgY = findImgLoc
             pyautogui.click(imgX,imgY)
-            print(f"image: {imageName}, found. Num of tries: {numtry}, confidence: {confidenceNum}")
+            print(f"image: {imageName}, found. Num of tries: {numtry}, confidence: {confidenceNum}, Operating System: {operatingSystem}")
             break
             
         else:
-            print(f"image: {imageName}, not found. confidence: {confidenceNum}, num of tries:{numtry}")
+            print(f"image: {imageName}, not found. confidence: {confidenceNum}, num of tries:{numtry}, Operating System: {operatingSystem}")
             numtry += 1
             continue
             
