@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import *
 import subprocess
 from header import *
-import webbrowser
 
 def start_game():
 
