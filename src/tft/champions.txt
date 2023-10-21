@@ -1,0 +1,288 @@
+Void{
+
+Bel'Veth
+
+Cho'Gath
+
+Kai'Sa
+
+Kassadin
+
+Malzahar
+
+Rek'Sai
+
+Vel'Koz
+}
+
+Shurima{
+
+Azir
+
+Cassiopeia
+
+K'Sante
+
+Naafiri
+
+Nasus
+
+Renekton
+
+Taliyah
+}
+
+ Noxus{
+
+Cassiopeia
+
+Darius
+
+Katarina
+
+Mordekaiser
+
+Samira
+
+Sion
+
+Swain}
+ Demacia{
+
+Fiora
+
+Galio
+
+Jarvan IV
+
+Kayle
+
+Poppy
+
+Quinn
+
+Sona}
+ Bilgewater{
+
+Gangplank
+
+Graves
+
+Illaoi
+
+Miss Fortune
+
+Nautilus
+
+Nilah
+
+Twisted Fate
+}
+Piltover{
+
+Ekko
+
+Heimerdinger
+
+Jayce
+
+Orianna
+
+Vi}
+ Zaun{
+
+Ekko
+
+Jinx
+
+Silco
+
+Warwick
+ Targon
+
+Aphelios
+
+Soraka
+
+Taric}
+ Ixtal{
+
+Milio
+
+Neeko
+
+Qiyana}
+ Freljord{
+
+Ashe
+
+Sejuani}
+ Darkin{
+
+Aatrox
+
+Naafiri}
+ Wanderer {
+
+Ryze }
+
+Ionia{
+
+Ahri
+
+Irelia
+
+Jhin
+
+Karma
+
+Sett
+
+Shen
+
+Xayah}
+
+Sorcerer {
+
+Ahri
+
+Malzahar
+
+Orianna
+
+Silco
+
+Swain
+
+Taric
+
+Vel'Koz}
+ Invoker {
+
+Cassiopeia
+
+Galio
+
+Karma
+
+Milio
+
+Ryze
+
+Shen
+
+Soraka}
+ Bastion {
+
+Illaoi
+
+K'Sante
+
+Kassadin
+
+Neeko
+
+Poppy
+
+Shen
+
+Taric}
+ Slayer {
+
+Aatrox
+
+Kayle
+
+Mordekaiser
+
+Qiyana
+
+Quinn
+
+Rek'Sai}
+ Juggernaut {
+
+Aatrox
+
+Darius
+
+Nasus
+
+Nautilus
+
+Sett
+
+Warwick}
+ Challenger {
+
+Fiora
+
+Irelia
+
+Kai'Sa
+
+Naafiri
+
+Samira
+
+Warwick}
+ Bruiser{ 
+
+Cho'Gath
+
+Rek'Sai
+
+Renekton
+
+Sejuani
+
+Sion
+
+Vi}
+ Vanquisher {
+
+Ashe
+
+Darius
+
+Jhin
+
+Nilah
+
+Xayah}
+ Gunner {
+
+Aphelios
+
+Gangplank
+
+Graves
+
+Jayce
+
+Jinx}
+ Strategist {
+
+Azir
+
+Jarvan IV
+
+Miss Fortune
+
+Swain}
+ Rogue {
+
+Ekko
+
+Graves
+
+Katarina
+
+Qiyana}
+ Multicaster {
+
+Sona
+
+Taliyah
+
+Twisted Fate}
