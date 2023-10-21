@@ -31,16 +31,6 @@ def read_and_convert_txt_file(filename):
     except FileNotFoundError:
         return None
 
-# Example usage:
-filename = 'src/tft/champions.txt'
-class_tuples = read_and_convert_txt_file(filename)
-if class_tuples:
-    for class_name, champion in class_tuples:
-        print(f"{class_name}: {champion}")
-else:
-    print(f"File '{filename}' not found.")
-
-print(class_tuples)
 
 
 
