@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import *
 import subprocess
-from Lol import header as h
+from Lol import AcceptMatch, Runes
 
 def start_game():
 
@@ -22,7 +22,8 @@ def start_game():
 
 def start_game_with_champs(champ_to_play, champ_to_ban):
     print(champ_to_play,champ_to_ban)
-    subprocess.call([h.AutoAccept_Match(champ_to_play, champ_to_ban)])
+    start = AcceptMatch.AcceptMatch(champ_to_play, champ_to_ban)
+    subprocess.call([start.AutoAccept_Match()])
     
 def search_runes():
     input_window = tk.Toplevel(root)
@@ -32,7 +33,8 @@ def search_runes():
     champ_entry = tk.Entry(input_window)
     lane_label = tk.Label(input_window, text="Lane")
     lane_entry = tk.Entry(input_window)
-    search_button = tk.Button(input_window, text="Search", command=lambda: h.open_runeSite(champ_entry.get(), lane_entry.get()))
+    runes = Runes.Runes(champ_entry.get(), lane_entry.get())
+    search_button = tk.Button(input_window, text="Search", command=lambda: runes.open_runeSite())
 
     lane_label.pack()
     lane_entry.pack()
