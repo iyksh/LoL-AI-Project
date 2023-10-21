@@ -1,7 +1,8 @@
 import pyautogui
 import time
 
-def getPos_andClick(imageName,confidenceNum):
+def click_img(imageName,confidenceNum):
+    """Get a position of the center of an image, and click it"""
     numtry = 1
     while(True):
         time.sleep(1.5)
@@ -21,27 +22,30 @@ def getPos_andClick(imageName,confidenceNum):
             continue
             
 def TryToBan(nameOfBanChamp):
-    getPos_andClick('searchChampion.png', 0.4)
+    """Get a position of the center of an pre-defined images, and click in them to ban a champion"""
+    click_img('searchChampion.png', 0.4)
     time.sleep(5)
     pyautogui.write(nameOfBanChamp)
-    getPos_andClick('champion.png', 0.3)      
+    click_img('champion.png', 0.3)      
     time.sleep(1.5)
-    getPos_andClick('banBottom.png', 0.6)
+    click_img('banBottom.png', 0.6)
 
 
 def TryToPickChamp(nameOfTheChampion):
+        """Get a position of the center of an pre-defined images, and click in them to pick a champion"""
+
         time.sleep(5)
-        getPos_andClick('searchChampion.png', 0.4)
+        click_img('searchChampion.png', 0.4)
         time.sleep(1)
         pyautogui.write(nameOfTheChampion)
-        getPos_andClick('champion.png', 0.3)
+        click_img('champion.png', 0.3)
         time.sleep(2)
-        getPos_andClick('confirm.png', 0.5)
+        click_img('confirm.png', 0.5)
                 
-def AutoAccept_Two(nameOfTheChampion,nameOfBanChamp):
+def AutoAccept_Match(nameOfTheChampion,nameOfBanChamp):
     
-        getPos_andClick('findMatch.png', 0.7)
-        getPos_andClick('aceitar.png', 0.5)
+        click_img('findMatch.png', 0.7)
+        click_img('aceitar.png', 0.5)
         time.sleep(10) #wait to enter lobby
 
         print("+++ Waiting ban selection +++\n")
@@ -51,3 +55,11 @@ def AutoAccept_Two(nameOfTheChampion,nameOfBanChamp):
             
         print("+++ Waiting your time to pick +++\n")
         TryToPickChamp(nameOfTheChampion)
+
+
+def open_runeSite(string):
+    temporaryStr = list(string.split(" "))
+    final_Str = "-".join(temporaryStr)
+    
+    url = "https://www.runas.lol/"+final_Str
+    webbrowser.open(url)
