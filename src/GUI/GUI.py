@@ -53,7 +53,7 @@ def search_runes():
     champ_combobox = ttk.Combobox(input_window, values=campeoes_lol) 
     champ_combobox.set("aatrox")  # Defina um valor padrão
     lane_label = tk.Label(input_window, text="Lane")
-    lane_combobox = ttk.Combobox(input_window, values=["top", "jungle", "mid", "adc", "sup"])  
+    lane_combobox = ttk.Combobox(input_window, values=["top", "jungle", "middle", "bottom", "support"])  
     lane_combobox.set("top")  # Defina um valor padrão
     search_button = tk.Button(input_window, text="Search", command=lambda: h.open_runeSite(champ_combobox.get(), lane_combobox.get()))
 
