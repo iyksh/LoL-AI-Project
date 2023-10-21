@@ -7,12 +7,11 @@ def create_chromosome(classes, numChamps):
 
     for i in range(numChamps):
         rand = random.randint(0, len(classes) - 10)
-        gene = classes[rand][1]
+        gene = classes[rand][0]
 
         if gene not in selected_genes:
             selected_genes.add(gene)
-            chromosome += (classes[rand],)
-
+            chromosome += (classes[rand])
     return chromosome
 
 
@@ -22,16 +21,20 @@ def create_population(rangePop, classes, rangeNumChampions):
 
 def fitness_chromosome(chromosome):
    fitness = 0
-   for i in range(len(chromosome)):
-    for j in range(len(chromosome)):
-       if chromosome[i][0] == chromosome[j][0] and chromosome[i][1] != chromosome[j][1]:
-          #print(f" {chromosome[i][0]}: {chromosome[i][1]} is good with {chromosome[i][0]}: {chromosome[j][1]}")
-          fitness += 10
-    
-    #if fitness > 10:
-       #print(f"The array {chromosome}, maybe is a good team. fitness: {fitness}")
+   classesList = []
+   for i in range(1,len(chromosome),2):
+       classesList.extend(chromosome[i])
+   
+   for i in range(len(classesList)):
+       for j in range(len(classesList)):
+            if classesList[i] == classesList[j] and i != j:
+                #print(f"{classesList[i]} == {classesList[j]}")
+                fitness += 10
 
-    return fitness
+   #print(classesList)
+   #print(fitness) 
+
+   return fitness
     
 
 def fitness_population(population):
@@ -119,9 +122,11 @@ def torneio(populacao, tamanho_da_luta):
 
 
 def geneticAlgortimh(filePath, populationRange, teamSize, gerationsNum,tournamentRange):
-    class_tuples = read_and_convert_txt_file(filePath)
-    population = create_population(populationRange,class_tuples,teamSize)
+    class_tuples = make_classes(filePath)
+    population = create_population(populationRange,class_tuples,teamSize)    
+    
     fitness = fitness_population(population)
+    
     best_fitness_global, bestTeam_global, worst_fitness, worst_chromosome = bestTeam(fitness, population)
 
     
@@ -136,10 +141,12 @@ def geneticAlgortimh(filePath, populationRange, teamSize, gerationsNum,tournamen
 
        best_fitness_global, bestTeam_global, worst_fitness, worst_chromosome = bestTeam(fitness, population)
 
-    print(best_fitness_global, bestTeam_global)
+    print(f"Melhor comp encontrada: fitness {best_fitness_global}")
+    for i in range(0,len(bestTeam_global),2):
+            print(f"{bestTeam_global[i]}, {bestTeam_global[i+1]}")
 
 filename = 'src/tft/champions.txt'
-geneticAlgortimh(filename,100,4,30,5)
+geneticAlgortimh(filename,10,8,4,3)
 
 
 

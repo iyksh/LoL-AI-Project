@@ -31,6 +31,18 @@ def read_and_convert_txt_file(filename):
     except FileNotFoundError:
         return None
 
+def make_classes(filename):
+    temp_classes = read_and_convert_txt_file(filename)
+ 
+    allClasses = []
+    for i in range(len(temp_classes)):
+        class_tuples = [temp_classes[i][0]]
+        for j in range(len(temp_classes)):
+            if temp_classes[i][1] == temp_classes[j][1] and temp_classes[i][0] != temp_classes[j][0]:
+                #print(f"{temp_classes[i]}, {temp_classes[j]}")
+                class_tuples.append(f"{temp_classes[j][0]}")
+        champName = f"{temp_classes[i][1]}"
 
+        allClasses.append((champName, class_tuples))
 
-
+    return allClasses
