@@ -3,19 +3,13 @@
 ## Introduction
 Welcome to the League of Legends AutoClicker project. This Python script, powered by various libraries, offers an automated solution for your gaming needs.
 
-
-### Description
-The League of Legends AutoClicker is designed to enhance your gaming experience by automating various actions within the game. It's a versatile tool for players looking to optimize their in-game performance.
-
 ## Table of Contents
 - [Installation](#installation)
-- [Usage](#usage)
 - [Configuration](#configuration)
 - [Contributing](#contributing)
 - [License](#license)
-- [Credits](#credits)
-- [Badges](#badges)
 - [Contact Information](#contact-information)
+- [Requirements and libraries descriptions](#Requirements-and-libraries-descriptions)
 
 ## Installation
 Get your AutoClicker up and running with these installation steps:
@@ -50,7 +44,7 @@ We welcome contributions to this project. If you'd like to get involved, follow 
 4. **Submit a Pull Request:** Open a pull request to merge your changes into the main project. Be sure to provide a clear description of your contribution.
 
 ## License
-This project is open-source and is available under the [License Name]. You can find the full text of the license in the [LICENSE](LICENSE) file.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software.
 
 ## Contact Information
 Have questions, suggestions, or need assistance? Feel free to contact us from here.
