@@ -1,20 +1,59 @@
-# LoL-Autocicker
-### I'll be introducing you to the script that I developed using Python libraries. 
+# League of Legends AutoClicker
 
-## Usage
+## Introduction
+Welcome to the League of Legends AutoClicker project. This Python script, powered by various libraries, offers an automated solution for your gaming needs.
 
-To get started with the autoclicker, follow these steps:
 
-1. Run the main program using the command:
+### Description
+The League of Legends AutoClicker is designed to enhance your gaming experience by automating various actions within the game. It's a versatile tool for players looking to optimize their in-game performance.
+
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [License](#license)
+- [Credits](#credits)
+- [Badges](#badges)
+- [Contact Information](#contact-information)
+
+## Installation
+Get your AutoClicker up and running with these installation steps:
+
+1. **Clone the Repository:** Use `git` to clone the repository to your local machine:
+```
+user@terminal:~$ git clone https://github.com/devYaksha/LoL-Autoclicker
+```
+
+2. **Run the Main Program:** Launch the application by executing the following command in your terminal:
 
 ```
 user@terminal:~$ python3 ./run.py
 ```
 
-This will launch an application that will automatically install or update all of the necessary requirements for you. 
-Once that's done, the autoclicker will be up and running, ready for use.
+This command will automatically install or update all the necessary requirements for you. Once completed, the autoclicker will be up and running, ready for use.
 
-2. You can compile the source code if necessary. (Pypy or PyInstaller)
+3. **Compile the Source Code:** If necessary, you can compile the source code using Pypy or PyInstaller.
+
+## Configuration
+Configuration not necessary
+
+## Contributing
+We welcome contributions to this project. If you'd like to get involved, follow these steps:
+
+1. **Fork the Repository:** Click the "Fork" button at the top right of the project's GitHub page.
+
+2. **Create a Branch:** Create a new branch for your feature or bug fix.
+
+3. **Make Changes:** Make your changes, ensuring they adhere to the project's coding standards.
+
+4. **Submit a Pull Request:** Open a pull request to merge your changes into the main project. Be sure to provide a clear description of your contribution.
+
+## License
+This project is open-source and is available under the [License Name]. You can find the full text of the license in the [LICENSE](LICENSE) file.
+
+## Contact Information
+Have questions, suggestions, or need assistance? Feel free to contact us from here.
 
 ## Requirements and libraries descriptions:
 
