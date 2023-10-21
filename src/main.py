@@ -1,6 +1,6 @@
-from GUI import *
+from GUI import GUI as g
 
-startGui()
+g.startGui()
         
                         
 

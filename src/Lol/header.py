@@ -3,6 +3,7 @@ import time
 import os
 import webbrowser
 
+
 def click_img(imageName,confidenceNum):
     """Get a position of the center of an image, and click it"""
     numtry = 1
@@ -65,9 +66,8 @@ def AutoAccept_Match(nameOfTheChampion,nameOfBanChamp):
         TryToPickChamp(nameOfTheChampion)
 
 
-def open_runeSite(string):
-    temporaryStr = list(string.split(" "))
-    final_Str = "-".join(temporaryStr)
-    
-    url = "https://www.runas.lol/"+final_Str
+def open_runeSite(champion, lane):
+    print(champion, lane)
+
+    url = "https://runes.lol/champion/"+champion+"/runes/?lane="+lane
     webbrowser.open(url)
