@@ -3,8 +3,18 @@
 
 ## Usage
 
-To get started with the autoclicker, simply run the "install.py" script. This will launch an application that will automatically install all of the necessary requirements for you. 
-Once that's done, you can run the "startup.py" script and the autoclicker will be up and running, ready for use.
+To get started with the autoclicker, follow these steps:
+
+1. Run the main program using the command:
+
+```
+user@terminal:~$ python3 ./run.py
+```
+
+This will launch an application that will automatically install or update all of the necessary requirements for you. 
+Once that's done, the autoclicker will be up and running, ready for use.
+
+2. You can compile the source code if necessary. (Pypy or PyInstaller)
 
 ## Requirements and libraries descriptions:
 
