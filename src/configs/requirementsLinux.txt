@@ -7,3 +7,4 @@ subprocess.run
 tesseract
 python3-tk
 ttkwidgets
+matplotlib
