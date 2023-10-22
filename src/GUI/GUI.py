@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import subprocess
+from Lol import header as h
 
 campeoes_lol = [
     "aatrox", "ahri", "akali", "akshan", "alistar", "amumu", "anivia", "annie", "aphelios", "ashe",
