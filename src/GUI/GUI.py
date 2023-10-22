@@ -76,7 +76,8 @@ def startGui():
     root.mainloop()
     
 def teamFightTatics():
-    champions,y = ga.algorithm("src/tft/champions.txt", 100, 8, 20, 3)
+    champions, best_fitness, championHash = ga.algorithm("src/tft/champions.txt", 100, 8, 3, 3, 300)
+    graph = ga.create_graph(champions, championHash)
     window = tk.Tk()
     window.title("Champion-List")
 

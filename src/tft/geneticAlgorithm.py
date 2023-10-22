@@ -1,6 +1,7 @@
 import random
 
 import matplotlib.pyplot as plt
+import networkx as nx
 
 def read_and_convert_txt_file(filename):
     try:
@@ -117,7 +118,7 @@ def torneio(populacao, tamanho_da_luta, championHash):
     return populacao_final
 
 
-def algorithm(filePath, populationRange, teamSize, gerationsNum,tournamentRange):
+def algorithm(filePath, populationRange, teamSize, gerationsNum,tournamentRange, minimumFitness):
     x,championHash = read_and_convert_txt_file(filePath)
     championsList = list(championHash.keys())
     population = create_population(populationRange, championsList, teamSize)
@@ -132,7 +133,39 @@ def algorithm(filePath, populationRange, teamSize, gerationsNum,tournamentRange)
 
        best_fitness, melhor_cromossomo, worst_fitness, worst_chromosome  = bestTeam(fitnessVec, population)
        bestGlobal_vec.append(best_fitness)
+       
+    if best_fitness < minimumFitness:
+        melhor_cromossomo, best_fitness, championHash = algorithm(filePath, populationRange, teamSize, gerationsNum,tournamentRange,minimumFitness)
+        
 
-    return melhor_cromossomo, best_fitness
+    return melhor_cromossomo, best_fitness, championHash
     
-    
+def create_graph(class_vector, characteristics_dict):
+    # Create a directed graph
+    graph = nx.DiGraph()
+
+    # Add nodes to the graph based on the class_vector
+    graph.add_nodes_from(class_vector)
+
+    # Iterate through the class_vector
+    for current_class in class_vector:
+        if current_class in characteristics_dict:
+            current_characteristics = characteristics_dict[current_class]
+
+            for characteristic in current_characteristics:
+                for other_class in class_vector:
+                    if current_class != other_class and characteristics_dict.get(other_class) and characteristic in characteristics_dict[other_class]:
+                        # Add a directed edge from the current class to the other class
+                        graph.add_edge(current_class, other_class)
+
+    # Visualize the graph
+    nx.draw(graph, with_labels=True, node_size=1000, node_color='skyblue', font_size=10, font_color='black')
+    plt.show()
+
+
+
+"""champions,y, z = algorithm("src/tft/champions.txt", 10, 8, 20, 3)
+print(champions)
+graph = create_common_characteristics_graph(champions, z)
+nx.draw(graph, with_labels=True, node_size=1000, node_color='skyblue', font_size=10, font_color='black')
+plt.show()"""
