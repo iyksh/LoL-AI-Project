@@ -35,14 +35,16 @@ def start_game():
     start_button = tk.Button(input_window, text="Start Game", command=lambda: start_game_with_champs(champ_combobox.get(), ban_combobox.get()))
 
     champ_label.pack()
+    champ_combobox.pack()
     ban_label.pack()
+    ban_combobox.pack()
     start_button.pack()
 
 
 def start_game_with_champs(champ_to_play, champ_to_ban):
     print(champ_to_play,champ_to_ban)
     match = AcceptMatch.AcceptMatch(champ_to_play, champ_to_ban)
-    subprocess.call([match.AutoAccept_Match(champ_to_play, champ_to_ban)])
+    subprocess.call([match.AutoAccept_Match()])
     
 def search_runes():
     input_window = tk.Toplevel(root)
@@ -58,6 +60,7 @@ def search_runes():
     search_button = tk.Button(input_window, text="Search", command=lambda: set_runes_params(champ_combobox.get(), lane_combobox.get(), runes))
 
     champ_label.pack()
+    champ_combobox.pack()
     lane_label.pack()
     lane_combobox.pack()
     search_button.pack()
@@ -66,16 +69,6 @@ def set_runes_params(champion, lane, runes : Runes.Runes):
     runes.setChampion(champion)
     runes.setLane(lane)
     runes.open_runeSite()
-
-
-root = tk.Tk()
-root.title("AutoClicker")
-
-button1 = tk.Button(root, text="Auto-Accept Match", command=start_game)
-button5 = tk.Button(root, text="Search Runes", command=search_runes)
-
-button1.pack()
-button5.pack()
 
 def startGui():
     root.geometry("300x200")
