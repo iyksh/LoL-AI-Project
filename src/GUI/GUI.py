@@ -52,7 +52,7 @@ def search_runes():
 
     champ_label = tk.Label(input_window, text="Champion to search:")
     champ_combobox = ttka.AutocompleteCombobox(input_window, completevalues=campeoes_lol) 
-    champ_combobox.set("aatrox")
+    champ_combobox.set("")
     lane_label = tk.Label(input_window, text="Lane")
     lane_combobox = ttka.AutocompleteCombobox(input_window, completevalues=['top', 'jungle', 'middle', 'bottom', 'support'])
     lane_combobox.set("top")
