@@ -5,3 +5,4 @@ pillow
 tk
 subprocess.run
 tesseract
+ttkwidgets

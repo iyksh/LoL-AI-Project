@@ -34,6 +34,8 @@ def start_game():
     ban_combobox = ttka.AutocompleteCombobox(input_window, completevalues=campeoes_lol)  
     start_button = tk.Button(input_window, text="Start Game", command=lambda: start_game_with_champs(champ_combobox.get(), ban_combobox.get()))
 
+    champ_label.pack()
+    ban_label.pack()
     start_button.pack()
 
 
@@ -55,6 +57,7 @@ def search_runes():
     runes = Runes.Runes(champ_combobox.get(), lane_combobox.get())
     search_button = tk.Button(input_window, text="Search", command=lambda: set_runes_params(champ_combobox.get(), lane_combobox.get(), runes))
 
+    champ_label.pack()
     lane_label.pack()
     lane_combobox.pack()
     search_button.pack()
