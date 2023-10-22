@@ -4,7 +4,6 @@ import os
 
 
 class AcceptMatch:
-     
     def __init__(self, championName, bannedChampion):
         self.championName = championName
         self.bannedChampion = bannedChampion

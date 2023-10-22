@@ -13,7 +13,8 @@ Malzahar
 Rek'Sai
 
 Vel'Koz
-}
+
+};
 
 Shurima{
 
@@ -30,9 +31,9 @@ Nasus
 Renekton
 
 Taliyah
-}
+};
 
- Noxus{
+Noxus{
 
 Cassiopeia
 
@@ -46,8 +47,10 @@ Samira
 
 Sion
 
-Swain}
- Demacia{
+Swain
+};
+
+Demacia{
 
 Fiora
 
@@ -61,8 +64,11 @@ Poppy
 
 Quinn
 
-Sona}
- Bilgewater{
+Sona
+
+};
+
+Bilgewater{
 
 Gangplank
 
@@ -77,7 +83,9 @@ Nautilus
 Nilah
 
 Twisted Fate
-}
+
+};
+
 Piltover{
 
 Ekko
@@ -88,8 +96,10 @@ Jayce
 
 Orianna
 
-Vi}
- Zaun{
+Vi
+};
+
+Zaun{
 
 Ekko
 
@@ -98,33 +108,49 @@ Jinx
 Silco
 
 Warwick
- Targon
+
+};
+
+Targon{
 
 Aphelios
 
 Soraka
 
-Taric}
- Ixtal{
+Taric
+
+};
+
+Ixtal{
 
 Milio
 
 Neeko
 
-Qiyana}
- Freljord{
+Qiyana 
+
+};
+ 
+Freljord{
 
 Ashe
 
-Sejuani}
- Darkin{
+Sejuani
+
+};
+
+Darkin{
 
 Aatrox
 
-Naafiri}
- Wanderer {
+Naafiri
 
-Ryze }
+};
+
+Wanderer{
+
+Ryze 
+};
 
 Ionia{
 
@@ -140,9 +166,12 @@ Sett
 
 Shen
 
-Xayah}
+Xayah
 
-Sorcerer {
+};
+
+Sorcerer
+{
 
 Ahri
 
@@ -156,8 +185,11 @@ Swain
 
 Taric
 
-Vel'Koz}
- Invoker {
+Vel'Koz 
+
+};
+
+Invoker{
 
 Cassiopeia
 
@@ -171,8 +203,10 @@ Ryze
 
 Shen
 
-Soraka}
- Bastion {
+Soraka 
+};
+
+Bastion{
 
 Illaoi
 
@@ -186,8 +220,11 @@ Poppy
 
 Shen
 
-Taric}
- Slayer {
+Taric 
+
+};
+
+Slayer{
 
 Aatrox
 
@@ -199,8 +236,11 @@ Qiyana
 
 Quinn
 
-Rek'Sai}
- Juggernaut {
+Rek'Sai 
+
+};
+
+Juggernaut{
 
 Aatrox
 
@@ -212,8 +252,11 @@ Nautilus
 
 Sett
 
-Warwick}
- Challenger {
+Warwick 
+
+};
+
+Challenger{
 
 Fiora
 
@@ -225,8 +268,11 @@ Naafiri
 
 Samira
 
-Warwick}
- Bruiser{ 
+Warwick 
+
+};
+
+Bruiser{ 
 
 Cho'Gath
 
@@ -238,8 +284,10 @@ Sejuani
 
 Sion
 
-Vi}
- Vanquisher {
+Vi 
+};
+
+Vanquisher{
 
 Ashe
 
@@ -249,8 +297,11 @@ Jhin
 
 Nilah
 
-Xayah}
- Gunner {
+Xayah 
+
+};
+
+Gunner{
 
 Aphelios
 
@@ -260,8 +311,11 @@ Graves
 
 Jayce
 
-Jinx}
- Strategist {
+Jinx 
+
+};
+ 
+Strategist{
 
 Azir
 
@@ -269,8 +323,11 @@ Jarvan IV
 
 Miss Fortune
 
-Swain}
- Rogue {
+Swain 
+
+};
+
+Rogue{
 
 Ekko
 
@@ -278,11 +335,16 @@ Graves
 
 Katarina
 
-Qiyana}
- Multicaster {
+Qiyana 
+
+};
+
+Multicaster{
 
 Sona
 
 Taliyah
 
-Twisted Fate}
+Twisted Fate 
+
+};
