@@ -1,0 +1,8 @@
+opencv-python
+pyautogui
+pynput
+pillow
+tk
+subprocess.run
+tesseract
+python3-tk
