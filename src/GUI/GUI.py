@@ -3,6 +3,7 @@ import ttkwidgets.autocomplete as ttka
 from tkinter import ttk
 import subprocess
 from Lol import AcceptMatch, Runes
+from tft import geneticAlgorithm as ga
 
 campeoes_lol = [
     "aatrox", "ahri", "akali", "akshan", "alistar", "amumu", "anivia", "annie", "aphelios", "ashe",
@@ -75,10 +76,37 @@ def startGui():
     root.mainloop()
     
 def teamFightTatics():
+    champions,y = ga.algorithm("src/tft/champions.txt", 100, 8, 20, 3)
     window = tk.Tk()
-    window.title("Under Construction")
-    label = tk.Label(window, text="In Construction", font=("Arial", 20))
-    label.pack(padx=20, pady=20)
+    window.title("Champion-List")
+
+    champion_frame = tk.Frame(window)
+    champion_frame.pack(padx=20, pady=20)
+
+    # Create a label for the champion list
+    champion_label = tk.Label(champion_frame, text="List of Champions", font=("Arial", 20))
+    champion_label.pack(pady=(5, 10))
+
+    # Create a listbox widget to display the champions
+    champion_listbox = tk.Listbox(champion_frame, selectmode=tk.SINGLE)
+    champion_listbox.pack(fill=tk.BOTH, expand=True)
+
+    # Populate the listbox with champions from the 'champions' vector
+    for champion in champions:
+        champion_listbox.insert(tk.END, champion)
+
+    # Create a scrollbar for the listbox
+    scrollbar = tk.Scrollbar(champion_frame)
+    scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+    champion_listbox.config(yscrollcommand=scrollbar.set, justify="center")
+    scrollbar.config(command=champion_listbox.yview)
+
+    # Create a label for the 'y' value
+    y_label = tk.Label(window, text=f"Fitness: {y}", font=("Arial", 8))
+    y_label.pack(padx=20, pady=(10, 20))
+
+    # Run the tkinter main loop
+    window.mainloop()
 
     # Run the tkinter main loop
     window.mainloop()

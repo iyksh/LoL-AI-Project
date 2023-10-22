@@ -1,17 +1,54 @@
-from headerTFT import *
 import random
 
+import matplotlib.pyplot as plt
+
+def read_and_convert_txt_file(filename):
+    try:
+        file = open(filename)
+    except:
+        print("Error Opening file")
+    text = []
+    for i in file:
+        text.append(i)
+
+    text = ''.join(text)
+    splitedOnce = text.split('\n')
+
+    championListNoRepeat = []
+
+    caracteristicsHash = {} ## Chave é caracteristica, e os dados que serão guardados é uma lista de campeões
+
+    championHash = {} ## Chave é o campeão, e os dados que serão guardados é uma lista de caracteristicas
+
+    for i in splitedOnce:
+        splitedTwice = i.split(':')
+        
+        championList = splitedTwice[1].split(',')
+        for i in championList:
+            if i in championHash.keys():
+                championHash[i].append(splitedTwice[0])
+            else:
+                championHash[i] = []
+                championHash[i].append(splitedTwice[0])
+                
+            if i not in championListNoRepeat:
+                championListNoRepeat.append(i)
+        caracteristicsHash[splitedTwice[0]] = championList
+    
+    return  caracteristicsHash, championHash 
+
+
 def create_chromosome(classes, numChamps):
-    chromosome = ()
+    chromosome = []
     selected_genes = set()
 
     for i in range(numChamps):
         rand = random.randint(0, len(classes) - 10)
-        gene = classes[rand][0]
+        gene = classes[rand]
 
         if gene not in selected_genes:
             selected_genes.add(gene)
-            chromosome += (classes[rand])
+            chromosome.append(gene)
     return chromosome
 
 
@@ -19,68 +56,28 @@ def create_population(rangePop, classes, rangeNumChampions):
    population = [create_chromosome(classes,rangeNumChampions) for i in range(rangePop)]
    return population
 
-def fitness_chromosome(chromosome):
+
+def fitness_chromosome(chromosome, championHash):
    fitness = 0
    classesList = []
-   for i in range(1,len(chromosome),2):
-       classesList.extend(chromosome[i])
-   
-   for i in range(len(classesList)):
-       for j in range(len(classesList)):
-            if classesList[i] == classesList[j] and i != j:
-                #print(f"{classesList[i]} == {classesList[j]}")
-                fitness += 10
-
-   #print(classesList)
-   #print(fitness) 
-
-   return fitness
+   for i in range(len(chromosome)):
+       classesList.extend(championHash.get(chromosome[i]))
     
-
-def fitness_population(population):
-   fitness = [fitness_chromosome(population[i]) for i in range(len(population))] #repeat the process for n population
+   for j in range(len(classesList)-1):
+       for k in range(len(classesList)-1):
+        if classesList[j] == classesList[k] and j != k :
+            fitness += 10
+       
+   
+   #print(chromosome, fitness)
    return fitness
 
+def fitness_population(population, championHash):
+   fitness = []
+   for i in range(len(population)):
+        fitness.append(fitness_chromosome(population[i], championHash))
 
-def pmx_crossover(parent1, parent2):
-    point1, point2 = sorted(random.sample(range(len(parent1)), 2))
-    offspring1 = [None] * len(parent1)
-    offspring2 = [None] * len(parent2)
-    offspring1[point1:point2 + 1] = parent1[point1:point2 + 1]
-    offspring2[point1:point2 + 1] = parent2[point1:point2 + 1]
-
-    for i in range(len(parent1)):
-        if point1 <= i <= point2:
-            continue 
-        else:
-            mapping = parent2[i]
-            while mapping in offspring1[point1:point2 + 1]:
-                index = parent1.index(mapping)
-                mapping = parent2[index]
-            offspring1[i] = mapping
-
-            mapping = parent1[i]
-            while mapping in offspring2[point1:point2 + 1]:
-                index = parent2.index(mapping)
-                mapping = parent1[index]
-            offspring2[i] = mapping
-
-    return offspring1, offspring2
-
-def crossover(population):
-   new_chromosomes = []
-   for i in range(0, len(population)-1, 2):
-        crossover_chance = random.randint(1,10) #repete o processo de pmx para todos os filhos-1
-        if crossover_chance > 2:
-            filho1, filho2 = pmx_crossover(population[i], population[i+1])
-            new_chromosomes.append(filho1)
-            new_chromosomes.append(filho2)
-        else:
-         filho1, filho2 = population[i], population[i+1]
-         new_chromosomes.append(filho1)
-         new_chromosomes.append(filho2)
-   
-   return new_chromosomes
+   return fitness
 
 def bestTeam(fitness_vec, population):
    best_fitness = fitness_vec[0]
@@ -99,8 +96,7 @@ def bestTeam(fitness_vec, population):
 
    return best_fitness, melhor_cromossomo, worst_fitness, worst_chromosome 
 
-
-def torneio(populacao, tamanho_da_luta):
+def torneio(populacao, tamanho_da_luta, championHash):
     populacao_final = []
     lutadores = []
     
@@ -108,8 +104,8 @@ def torneio(populacao, tamanho_da_luta):
     for i in range(len(populacao)):
       for j in range(tamanho_da_luta):
           lutadores.append(random.choice(populacao))
-      r = random.random()  # valor entre 0 e 1
-      fitness = fitness_population(lutadores)
+      r = random.random()
+      fitness = fitness_population(lutadores,championHash)
       
       melhor_fitness, melhor_cromossomo, pior_fitness, pior_cromossomo = bestTeam(fitness,lutadores)
 
@@ -121,32 +117,22 @@ def torneio(populacao, tamanho_da_luta):
     return populacao_final
 
 
-def geneticAlgortimh(filePath, populationRange, teamSize, gerationsNum,tournamentRange):
-    class_tuples = make_classes(filePath)
-    population = create_population(populationRange,class_tuples,teamSize)    
-    
-    fitness = fitness_population(population)
-    
-    best_fitness_global, bestTeam_global, worst_fitness, worst_chromosome = bestTeam(fitness, population)
-
-    
-
-
+def algorithm(filePath, populationRange, teamSize, gerationsNum,tournamentRange):
+    x,championHash = read_and_convert_txt_file(filePath)
+    championsList = list(championHash.keys())
+    population = create_population(populationRange, championsList, teamSize)
+    fitnessVec = fitness_population(population, championHash)
+    best_fitness, melhor_cromossomo, worst_fitness, worst_chromosome  = bestTeam(fitnessVec, population)
     bestGlobal_vec = []
-    bestGlobal_vec.append(best_fitness_global)
+    bestGlobal_vec.append(best_fitness)
 
     for i in range(gerationsNum):
-       population = torneio(population, tournamentRange)
-       fitness = fitness_population(population)
+       population = torneio(population, tournamentRange,championHash)
+       fitnessVec = fitness_population(population,championHash)
 
-       best_fitness_global, bestTeam_global, worst_fitness, worst_chromosome = bestTeam(fitness, population)
+       best_fitness, melhor_cromossomo, worst_fitness, worst_chromosome  = bestTeam(fitnessVec, population)
+       bestGlobal_vec.append(best_fitness)
 
-    print(f"Melhor comp encontrada: fitness {best_fitness_global}")
-    for i in range(0,len(bestTeam_global),2):
-            print(f"{bestTeam_global[i]}, {bestTeam_global[i+1]}")
-
-filename = 'src/tft/champions.txt'
-geneticAlgortimh(filename,10,8,4,3)
-
-
-
+    return melhor_cromossomo, best_fitness
+    
+    
