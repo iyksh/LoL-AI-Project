@@ -5,6 +5,7 @@ import subprocess
 from Lol import AcceptMatch, Runes
 from Tft import geneticAlgorithm as ga
 
+
 campeoes_lol = [
     "aatrox", "ahri", "akali", "akshan", "alistar", "amumu", "anivia", "annie", "aphelios", "ashe",
     "aurelion sol", "azir", "bard", "bel'veth", "blitzcrank", "brand", "braum", "briar", "caitlyn",
@@ -107,6 +108,8 @@ def teamFightTatics():
 
     # Run the tkinter main loop
     window.mainloop()
+
+
 root = tk.Tk()
 root.title("AutoClicker")
 buttonAAM = tk.Button(root, text="Auto-Accept Match", command=start_game,  width=50, height=2)
