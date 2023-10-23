@@ -31,13 +31,13 @@ class AcceptMatch:
         click_img('confirm.png', 0.5, self.os)
                     
     def AutoAccept_Match(self):
-        click_img('findMatch.png', 0.7, self.os)
+        click_img('findMatch.png', 0.2, self.os)
         click_img('aceitar.png', 0.5, self.os)
         time.sleep(10) #wait to enter lobby
 
         print("+++ Waiting ban selection +++\n")
         time.sleep(20); 
-        self.TryToBan(self.championName)
+        self.TryToBan()
         time.sleep(5) #wait after ban
             
         print("+++ Waiting your time to pick +++\n")
@@ -63,10 +63,9 @@ def Windows_locate_img(imageName, confidenceNum, operatingSys):
 
     numtry = 1
     while(True):
-        time.sleep(1.5)
-            
         findImgLoc = pyautogui.locateOnScreen(f'.\src\images\{imageName}',grayscale=True,confidence=confidenceNum)
-            
+        
+        time.sleep(1.5)
         if findImgLoc != None:
             findImgLoc = pyautogui.center(findImgLoc)
             print(f"image: {imageName}, found. Num of tries: {numtry}, confidence: {confidenceNum}, Operating System: {operatingSys}")
