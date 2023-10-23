@@ -1,4 +1,4 @@
-# League of Legends AutoClicker
+# League of Legends Artificial Intelligence Project
 
 ## Introduction
 Welcome to the League of Legends AutoClicker project. This Python script, powered by various libraries, offers an automated solution for your gaming needs.
