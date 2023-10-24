@@ -41,7 +41,7 @@ class AcceptMatch:
         time.sleep(5) #wait after ban
             
         print("+++ Waiting your time to pick +++\n")
-        self.TryToPickChamp(self.bannedChampion)
+        self.TryToPickChamp()
 
 
 def click_img(imageName,confidenceNum, os):
