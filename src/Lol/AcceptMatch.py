@@ -14,7 +14,7 @@ class AcceptMatch:
         click_img('searchChampion.png', 0.4, self.os)
         time.sleep(5)
         pyautogui.write(self.bannedChampion)
-        click_img('champion.png', 0.3, self.os)      
+        click_img('champion.png', 0.5, self.os)      
         time.sleep(1.5)
         click_img('banBottom.png', 0.6, self.os)
 
@@ -31,7 +31,7 @@ class AcceptMatch:
         click_img('confirm.png', 0.5, self.os)
                     
     def AutoAccept_Match(self):
-        click_img('findMatch.png', 0.2, self.os)
+        click_img('findMatch.png', 0.5, self.os)
         click_img('aceitar.png', 0.5, self.os)
         time.sleep(10) #wait to enter lobby
 
