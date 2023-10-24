@@ -37,11 +37,11 @@ class AcceptMatch:
 
         print("+++ Waiting ban selection +++\n")
         time.sleep(20); 
-        self.TryToBan(self.championName)
+        self.TryToBan()
         time.sleep(5) #wait after ban
-            
+        
         print("+++ Waiting your time to pick +++\n")
-        self.TryToPickChamp(self.bannedChampion)
+        self.TryToPickChamp()
 
 
 def click_img(imageName,confidenceNum, os):
