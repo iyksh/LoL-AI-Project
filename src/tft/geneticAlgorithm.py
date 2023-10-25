@@ -1,5 +1,4 @@
 import random
-
 import matplotlib.pyplot as plt
 import networkx as nx
 
@@ -116,29 +115,6 @@ def torneio(populacao, tamanho_da_luta, championHash):
           populacao_final.append(pior_cromossomo)
 
     return populacao_final
-
-
-def algorithm(filePath, populationRange, teamSize, gerationsNum,tournamentRange, minimumFitness):
-    x,championHash = read_and_convert_txt_file(filePath)
-    championsList = list(championHash.keys())
-    population = create_population(populationRange, championsList, teamSize)
-    fitnessVec = fitness_population(population, championHash)
-    best_fitness, melhor_cromossomo, worst_fitness, worst_chromosome  = bestTeam(fitnessVec, population)
-    bestGlobal_vec = []
-    bestGlobal_vec.append(best_fitness)
-
-    for i in range(gerationsNum):
-       population = torneio(population, tournamentRange,championHash)
-       fitnessVec = fitness_population(population,championHash)
-
-       best_fitness, melhor_cromossomo, worst_fitness, worst_chromosome  = bestTeam(fitnessVec, population)
-       bestGlobal_vec.append(best_fitness)
-       
-    if best_fitness < minimumFitness:
-        melhor_cromossomo, best_fitness, championHash = algorithm(filePath, populationRange, teamSize, gerationsNum,tournamentRange,minimumFitness)
-        
-
-    return melhor_cromossomo, best_fitness, championHash
     
 def create_graph(class_vector, characteristics_dict):
     # Create a directed graph
@@ -162,10 +138,29 @@ def create_graph(class_vector, characteristics_dict):
     nx.draw(graph, with_labels=True, node_size=1000, node_color='skyblue', font_size=10, font_color='black')
     plt.show()
 
+def algorithm(filePath, populationRange, teamSize, gerationsNum,tournamentRange, minimumFitness):
+    print(f"Running Genetic Algorithm: Fitness: {minimumFitness}")
+    x,championHash = read_and_convert_txt_file(filePath)
+    championsList = list(championHash.keys())
+    population = create_population(populationRange, championsList, teamSize)
+    fitnessVec = fitness_population(population, championHash)
+    best_fitness, melhor_cromossomo, worst_fitness, worst_chromosome  = bestTeam(fitnessVec, population)
+    bestGlobal_vec = []
+    bestGlobal_vec.append(best_fitness)
 
+    for i in range(gerationsNum):
+       population = torneio(population, tournamentRange,championHash)
+       fitnessVec = fitness_population(population,championHash)
 
-"""champions,y, z = algorithm("src/tft/champions.txt", 10, 8, 20, 3)
-print(champions)
-graph = create_common_characteristics_graph(champions, z)
-nx.draw(graph, with_labels=True, node_size=1000, node_color='skyblue', font_size=10, font_color='black')
-plt.show()"""
+       best_fitness, melhor_cromossomo, worst_fitness, worst_chromosome  = bestTeam(fitnessVec, population)
+       bestGlobal_vec.append(best_fitness)
+       
+    if best_fitness < minimumFitness:
+        melhor_cromossomo, best_fitness, championHash = algorithm(filePath, populationRange, teamSize, gerationsNum,tournamentRange,minimumFitness)
+        print(f"Fitness < {minimumFitness}")
+
+    
+    create_graph(melhor_cromossomo, championHash)
+        
+
+    return melhor_cromossomo, best_fitness, championHash

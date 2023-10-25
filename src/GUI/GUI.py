@@ -74,16 +74,23 @@ def set_runes_params(champion, lane, runes : Runes.Runes):
 def startGui():
     root.geometry("300x200")
     root.mainloop()
-    
+
 def teamFightTatics():
-    champions, best_fitness, championHash = ga.algorithm("src/tft/champions.txt", 100, 8, 3, 3, 300)
-    graph = ga.create_graph(champions, championHash)
+    input_window = tk.Toplevel(root)
+    fitness_label = tk.Label(input_window, text="0-100: Bad | 100 - 200: Good | 200-300: Very Good")
+    fitness_combobox = ttka.AutocompleteCombobox(input_window, completevalues=["50","100", "200", "300", "400"])
+    fitness_label.pack()
+    fitness_combobox.pack()
+    fitness_button = tk.Button(input_window, text="Set Fitness", command=lambda: geneticAlgorithmTFT(int(fitness_combobox.get())))
+    fitness_button.pack()
+
+def geneticAlgorithmTFT(minFitness):
+
+    champions, best_fitness, championHash = ga.algorithm("src/tft/champions.txt", 100, 8, 3, 3, minFitness)
     window = tk.Tk()
     window.title("Champion-List")
-
     champion_frame = tk.Frame(window)
-    champion_frame.pack(padx=20, pady=20)
-
+    champion_frame.pack(padx=20, pady=10)
     # Create a label for the champion list
     champion_label = tk.Label(champion_frame, text="List of Champions", font=("Arial", 20))
     champion_label.pack(pady=(5, 10))
@@ -103,7 +110,7 @@ def teamFightTatics():
     scrollbar.config(command=champion_listbox.yview)
 
     # Create a label for the 'y' value
-    y_label = tk.Label(window, text=f"Fitness: {y}", font=("Arial", 8))
+    y_label = tk.Label(window, text=f"Fitness: {best_fitness}", font=("Arial", 8))
     y_label.pack(padx=20, pady=(10, 20))
 
     # Run the tkinter main loop
