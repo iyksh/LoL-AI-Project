@@ -115,7 +115,7 @@ def torneio(populacao, tamanho_da_luta, championHash):
           populacao_final.append(pior_cromossomo)
 
     return populacao_final
-    #teste
+    
 def create_graph(class_vector, characteristics_dict):
     # Create a directed graph
     graph = nx.DiGraph()
