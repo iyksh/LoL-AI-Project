@@ -156,11 +156,11 @@ def algorithm(filePath, populationRange, teamSize, gerationsNum,tournamentRange,
        bestGlobal_vec.append(best_fitness)
        
     if best_fitness < minimumFitness:
-        melhor_cromossomo, best_fitness, championHash = algorithm(filePath, populationRange, teamSize, gerationsNum,tournamentRange,minimumFitness)
         print(f"Fitness < {minimumFitness}")
-
-    
-    create_graph(melhor_cromossomo, championHash)
+        melhor_cromossomo, best_fitness, championHash = algorithm(filePath, populationRange, teamSize, gerationsNum,tournamentRange,minimumFitness)
         
 
-    return melhor_cromossomo, best_fitness, championHash
+    else:
+
+        create_graph(melhor_cromossomo, championHash)
+        return melhor_cromossomo, best_fitness, championHash

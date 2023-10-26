@@ -1,27 +1,31 @@
 import os
+import subprocess
 
-if os.name == "nt": #nt: windows os
-        os.system("pip install -r src/configs/requirements.txt")
-        try:
-                os.system("python3 src\main.py")        
-        finally:
-                os.system("cls")
-                print("python3 maybe not installed, trying with python")
-                os.system("python src\main.py")
-        
-        
+if os.name == "nt":  # Windows OS
+    requirements_file = "src/configs/requirements.txt"
+    main_script = "src\\main.py"
+    python_executable = "python3"
 
+    try:
+        subprocess.run(["pip", "install", "-r", requirements_file], check=True)
+        subprocess.run([python_executable, main_script], check=True)
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        os.system("cls")
+        print(f"{python_executable} maybe not installed, trying with python")
+        os.system("python " + main_script)
 
-elif os.name == "Linux":
-        os.system("pip install -r src/configs/requirementsLinux.txt")
-        try:
-                os.system("python3 src/main.py")     
-        finally:
-                os.system("clear")
-                print("python3 maybe not installed, trying with python")
-                os.system("python src/main.py")
+elif os.name == "posix":  # Linux
+    requirements_file = "src/configs/requirementsLinux.txt"
+    main_script = "src/main.py"
+    python_executable = "python3"
 
-  
+    try:
+        subprocess.run(["pip", "install", "-r", requirements_file], check=True)
+        subprocess.run([python_executable, main_script], check=True)
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        os.system("clear")
+        print(f"{python_executable} maybe not installed, trying with python")
+        os.system("python " + main_script)
+
 else:
-        print("OS not supported")
-
+    print("OS not supported")
