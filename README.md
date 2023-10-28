@@ -16,7 +16,7 @@ Get your AutoClicker up and running with these installation steps:
 
 1. **Clone the Repository:** Use `git` to clone the repository to your local machine:
 ```
-user@terminal:~$ git clone https://github.com/devYaksha/LoL-Autoclicker
+user@terminal:~$ git clone https://github.com/devYaksha/LoL-Autoclicker](https://github.com/devYaksha/LoL-AI-Project
 ```
 
 2. **Run the Main Program:** Launch the application by executing the following command in your terminal:
